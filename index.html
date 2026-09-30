@@ -12,225 +12,163 @@
 
 <body>
 
+    <!-- Decorative background -->
+
+    <div class="blob blob-pink"></div>
+    <div class="blob blob-purple"></div>
+    <div class="blob blob-blue"></div>
+
+
+    <!-- Navigation -->
+
     <header class="navbar">
 
-        <a href="#" class="logo">StudyFlow</a>
+        <a href="#" class="logo">
+            Study<span>Flow</span>
+        </a>
 
-        <nav class="nav-links">
-            <a href="#" class="active">Dashboard</a>
-            <a href="#">Tasks</a>
+        <nav>
+            <a href="#" class="active">Home</a>
             <a href="#">Subjects</a>
             <a href="#">Schedule</a>
-            <a href="#">Timer</a>
+            <a href="#">Tasks</a>
         </nav>
 
-        <button class="profile">AP</button>
+        <button class="profile">
+            AP
+        </button>
 
     </header>
 
 
-    <main class="container">
+    <!-- Main -->
 
-        <!-- Hero -->
+    <main class="main">
 
-        <section class="hero">
+        <!-- Welcome -->
 
-            <div>
-                <p class="eyebrow">YOUR STUDY SPACE</p>
+        <section class="welcome">
 
-                <h1>Study smarter,<br>one session at a time.</h1>
+            <span class="mini-label">
+                YOUR DIGITAL STUDY SPACE
+            </span>
 
-                <p class="hero-text">
-                    Organize your subjects, plan your study sessions,
-                    and keep track of your progress.
-                </p>
-            </div>
+            <h1>
+                Make time for<br>
+                <span>what matters.</span>
+            </h1>
 
-            <div class="date-card">
-                <span>Today</span>
-                <strong id="current-date">September 30</strong>
-                <small>Wednesday</small>
-            </div>
+            <p>
+                Plan your study sessions, focus on one goal at a time,
+                and watch your progress grow.
+            </p>
 
-        </section>
-
-
-        <!-- Main Dashboard -->
-
-        <section class="dashboard">
-
-            <!-- Tasks -->
-
-            <div class="card tasks-card">
-
-                <div class="card-title">
-
-                    <div>
-                        <span class="section-label">TODAY</span>
-                        <h2>Today's Tasks</h2>
-                    </div>
-
-                    <button class="add-btn">+</button>
-
-                </div>
-
-
-                <div class="task-list">
-
-                    <label class="task">
-                        <input type="checkbox">
-
-                        <span class="checkmark"></span>
-
-                        <div>
-                            <strong>Physics — Waves</strong>
-                            <small>Review oscillations</small>
-                        </div>
-                    </label>
-
-
-                    <label class="task">
-                        <input type="checkbox">
-
-                        <span class="checkmark"></span>
-
-                        <div>
-                            <strong>Mathematics — Integration</strong>
-                            <small>Practice 10 questions</small>
-                        </div>
-                    </label>
-
-
-                    <label class="task completed">
-                        <input type="checkbox" checked>
-
-                        <span class="checkmark"></span>
-
-                        <div>
-                            <strong>Chemistry — Organic</strong>
-                            <small>Review reaction mechanisms</small>
-                        </div>
-                    </label>
-
-                </div>
-
-
-                <button class="view-all">
-                    View all tasks →
-                </button>
-
-            </div>
-
-
-            <!-- Progress -->
-
-            <div class="card progress-card">
-
-                <span class="section-label">THIS WEEK</span>
-
-                <h2>Study Progress</h2>
-
-                <div class="progress-wrapper">
-
-                    <div class="progress-circle">
-                        <span>72%</span>
-                    </div>
-
-                </div>
-
-                <p>
-                    You're making steady progress.
-                    Keep going!
-                </p>
-
-                <div class="progress-stats">
-
-                    <div>
-                        <strong>8.5h</strong>
-                        <span>Study time</span>
-                    </div>
-
-                    <div>
-                        <strong>14</strong>
-                        <span>Tasks done</span>
-                    </div>
-
-                </div>
-
+            <div class="today">
+                <span id="day">Wednesday</span>
+                <strong id="date">September 30, 2026</strong>
             </div>
 
         </section>
 
 
-        <!-- Schedule -->
+        <!-- Focus Area -->
 
-        <section class="card schedule-card">
+        <section class="focus-area">
 
-            <div class="section-heading">
+            <!-- Left decorative subject -->
+
+            <div class="floating-card subject-card math-card">
+
+                <div class="subject-symbol">
+                    ∑
+                </div>
 
                 <div>
-                    <span class="section-label">YOUR PLAN</span>
-                    <h2>Today's Schedule</h2>
+                    <strong>Mathematics</strong>
+                    <small>6 tasks</small>
                 </div>
-
-                <a href="#">View schedule →</a>
 
             </div>
 
 
-            <div class="schedule">
+            <!-- Main Focus Card -->
 
-                <div class="schedule-item">
+            <div class="focus-card">
 
-                    <time>09:00</time>
+                <div class="focus-top">
 
-                    <div class="schedule-line blue"></div>
-
-                    <div class="schedule-content">
-                        <strong>Mathematics</strong>
-                        <span>Integration practice</span>
-                    </div>
-
-                    <span class="subject-tag blue-tag">
-                        Maths
+                    <span>
+                        CURRENT FOCUS
                     </span>
+
+                    <button class="more">
+                        ···
+                    </button>
 
                 </div>
 
 
-                <div class="schedule-item">
+                <div class="focus-subject">
+                    Physics
+                </div>
 
-                    <time>11:30</time>
+                <h2>
+                    Waves & Oscillations
+                </h2>
 
-                    <div class="schedule-line lavender"></div>
+                <p>
+                    25 minute focused study session
+                </p>
 
-                    <div class="schedule-content">
-                        <strong>Physics</strong>
-                        <span>Waves & oscillations</span>
+
+                <!-- Timer -->
+
+                <div class="timer">
+
+                    <div class="timer-ring">
+
+                        <div class="timer-inner">
+                            <span id="timer">25:00</span>
+                            <small>FOCUS</small>
+                        </div>
+
                     </div>
-
-                    <span class="subject-tag lavender-tag">
-                        Physics
-                    </span>
 
                 </div>
 
 
-                <div class="schedule-item">
+                <button class="start-btn">
+                    Start Focus Session
+                    <span>→</span>
+                </button>
 
-                    <time>15:00</time>
 
-                    <div class="schedule-line sage"></div>
+                <div class="session-info">
 
-                    <div class="schedule-content">
-                        <strong>Chemistry</strong>
-                        <span>Organic chemistry review</span>
-                    </div>
-
-                    <span class="subject-tag sage-tag">
-                        Chemistry
+                    <span>
+                        ✦ Deep focus
                     </span>
 
+                    <span>
+                        25 min
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- Right decorative subject -->
+
+            <div class="floating-card subject-card physics-card">
+
+                <div class="subject-symbol">
+                    ◌
+                </div>
+
+                <div>
+                    <strong>Physics</strong>
+                    <small>4 tasks</small>
                 </div>
 
             </div>
@@ -245,57 +183,179 @@
             <div class="section-heading">
 
                 <div>
-                    <span class="section-label">YOUR LEARNING</span>
-                    <h2>Subjects</h2>
+                    <span>YOUR SUBJECTS</span>
+                    <h2>What are you learning?</h2>
                 </div>
 
-                <a href="#">Manage subjects →</a>
+                <button class="add-subject">
+                    + Add subject
+                </button>
 
             </div>
 
 
-            <div class="subjects">
+            <div class="subjects-grid">
 
-                <div class="subject math">
-                    <span class="subject-icon">∑</span>
-                    <strong>Mathematics</strong>
-                    <small>6 tasks remaining</small>
-                </div>
+                <article class="subject subject-math">
 
-                <div class="subject physics">
-                    <span class="subject-icon">◌</span>
-                    <strong>Physics</strong>
-                    <small>4 tasks remaining</small>
-                </div>
+                    <div class="subject-icon">
+                        ∑
+                    </div>
 
-                <div class="subject chemistry">
-                    <span class="subject-icon">⚗</span>
-                    <strong>Chemistry</strong>
-                    <small>3 tasks remaining</small>
-                </div>
+                    <div>
+                        <h3>Mathematics</h3>
+                        <p>6 tasks remaining</p>
+                    </div>
+
+                    <span class="arrow">
+                        →
+                    </span>
+
+                </article>
+
+
+                <article class="subject subject-physics">
+
+                    <div class="subject-icon">
+                        ◌
+                    </div>
+
+                    <div>
+                        <h3>Physics</h3>
+                        <p>4 tasks remaining</p>
+                    </div>
+
+                    <span class="arrow">
+                        →
+                    </span>
+
+                </article>
+
+
+                <article class="subject subject-chemistry">
+
+                    <div class="subject-icon">
+                        ⚗
+                    </div>
+
+                    <div>
+                        <h3>Chemistry</h3>
+                        <p>3 tasks remaining</p>
+                    </div>
+
+                    <span class="arrow">
+                        →
+                    </span>
+
+                </article>
 
             </div>
 
         </section>
 
 
-        <!-- Quick Timer -->
+        <!-- Tasks -->
 
-        <section class="timer-banner">
+        <section class="tasks-section">
 
-            <div>
-                <span class="section-label">FOCUS SESSION</span>
+            <span class="section-label">
+                TODAY
+            </span>
 
-                <h2>Ready for your next study session?</h2>
+            <h2>
+                A few things to finish
+            </h2>
 
-                <p>
-                    Start a focused session and make your study time count.
-                </p>
+            <div class="tasks">
+
+                <label class="task">
+
+                    <input type="checkbox">
+
+                    <span class="box"></span>
+
+                    <div>
+                        <strong>
+                            Practice integration
+                        </strong>
+
+                        <small>
+                            Mathematics · 10 questions
+                        </small>
+                    </div>
+
+                </label>
+
+
+                <label class="task">
+
+                    <input type="checkbox">
+
+                    <span class="box"></span>
+
+                    <div>
+                        <strong>
+                            Review oscillations
+                        </strong>
+
+                        <small>
+                            Physics · Chapter 4
+                        </small>
+                    </div>
+
+                </label>
+
+
+                <label class="task done">
+
+                    <input type="checkbox" checked>
+
+                    <span class="box"></span>
+
+                    <div>
+                        <strong>
+                            Organic chemistry review
+                        </strong>
+
+                        <small>
+                            Chemistry · Completed
+                        </small>
+                    </div>
+
+                </label>
+
             </div>
 
-            <button class="timer-btn">
-                Start Timer →
-            </button>
+        </section>
+
+
+        <!-- Progress -->
+
+        <section class="progress-section">
+
+            <div class="progress-card">
+
+                <div>
+                    <span class="section-label">
+                        THIS WEEK
+                    </span>
+
+                    <h2>
+                        You're making progress.
+                    </h2>
+
+                    <p>
+                        Keep your study rhythm going.
+                    </p>
+                </div>
+
+
+                <div class="progress-number">
+                    <strong>72</strong>
+                    <span>%</span>
+                </div>
+
+            </div>
 
         </section>
 
@@ -303,7 +363,15 @@
 
 
     <footer>
-        <p>StudyFlow · Plan better. Study smarter.</p>
+
+        <span>
+            StudyFlow
+        </span>
+
+        <p>
+            Plan better · Focus deeper · Learn consistently
+        </p>
+
     </footer>
 
 
