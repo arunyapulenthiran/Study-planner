@@ -321,99 +321,12 @@ a {
 .focus-area {
     width: 100%;
 
-    display: grid;
+    display: flex;
 
-    grid-template-columns:
-        1fr
-        minmax(360px, 500px)
-        1fr;
-
+    justify-content: center;
     align-items: center;
-
-    justify-items: center;
-
-    gap: 25px;
 
     margin-bottom: 95px;
-}
-
-
-/* ==================================================
-   FLOATING CARDS
-   ================================================== */
-
-.floating-card {
-    width: 190px;
-    min-height: 85px;
-
-    padding: 17px;
-
-    display: flex;
-    align-items: center;
-
-    gap: 13px;
-
-    text-align: left;
-
-    border-radius: 22px;
-
-    box-shadow: var(--soft-shadow);
-
-    transition:
-        transform 0.3s ease,
-        box-shadow 0.3s ease;
-}
-
-.floating-card:hover {
-    transform: translateY(-7px) rotate(1deg);
-    box-shadow: var(--shadow);
-}
-
-.math-card {
-    background: var(--sage);
-    transform: rotate(-5deg);
-}
-
-.physics-card {
-    background: var(--blue);
-    transform: rotate(5deg);
-}
-
-.physics-card:hover {
-    transform: translateY(-7px) rotate(1deg);
-}
-
-.subject-symbol {
-    width: 48px;
-    height: 48px;
-
-    flex-shrink: 0;
-
-    display: grid;
-    place-items: center;
-
-    border-radius: 16px;
-
-    background: rgba(255, 255, 255, 0.65);
-
-    font-family: "Playfair Display", serif;
-
-    font-size: 25px;
-}
-
-.floating-card strong {
-    display: block;
-    font-size: 14px;
-}
-
-.floating-card small {
-    display: block;
-
-    margin-top: 4px;
-
-    color: var(--muted);
-
-    font-size: 11px;
 }
 
 
@@ -422,7 +335,7 @@ a {
    ================================================== */
 
 .focus-card {
-    width: 100%;
+    width: min(500px, 100%);
 
     padding: 32px 35px 27px;
 
@@ -728,9 +641,6 @@ a {
 
 /* ==================================================
    SUBJECTS
-   IMPORTANT:
-   JavaScript creates .subject-item
-   NOT .subject
    ================================================== */
 
 .subjects-section {
@@ -1035,49 +945,15 @@ a {
 
 .task input {
     display: block;
+
     width: 18px;
     height: 18px;
+
     flex-shrink: 0;
+
     cursor: pointer;
+
     accent-color: var(--purple-dark);
-}
-
-.box {
-    width: 22px;
-    height: 22px;
-
-    flex-shrink: 0;
-
-    border: 2px solid #C8C4CF;
-
-    border-radius: 7px;
-
-    transition: 0.2s ease;
-}
-
-.task input:checked + .box {
-    background: var(--purple-dark);
-
-    border-color: var(--purple-dark);
-
-    position: relative;
-}
-
-.task input:checked + .box::after {
-    content: "✓";
-
-    position: absolute;
-
-    top: 50%;
-    left: 50%;
-
-    transform:
-        translate(-50%, -52%);
-
-    color: white;
-
-    font-size: 13px;
-    font-weight: 700;
 }
 
 .task-content {
@@ -2036,30 +1912,22 @@ footer p {
     }
 
     .focus-area {
-        grid-template-columns: 1fr;
+        display: flex;
+
+        justify-content: center;
+
+        width: 100%;
     }
 
     .focus-card {
+        width: min(500px, 100%);
+
         max-width: 500px;
-
-        order: 1;
-    }
-
-    .math-card {
-        order: 2;
-    }
-
-    .physics-card {
-        order: 3;
     }
 
     .subjects-grid {
         grid-template-columns:
             repeat(2, minmax(0, 1fr));
-    }
-
-    .floating-card {
-        width: 230px;
     }
 
     .section-heading {
@@ -2126,10 +1994,20 @@ footer p {
 
 
     .focus-area {
+        width: 100%;
+
         margin-bottom: 70px;
+
+        display: flex;
+
+        justify-content: center;
     }
 
     .focus-card {
+        width: 100%;
+
+        max-width: 500px;
+
         padding:
             27px 20px 23px;
 
