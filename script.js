@@ -1064,3 +1064,166 @@ function escapeHTML(text) {
 
     return div.innerHTML;
 }
+/* =========================
+   DASHBOARD STATS
+   ========================= */
+
+function updateDashboard() {
+
+    const subjectStat =
+        document.getElementById("stat-subjects");
+
+    const taskStat =
+        document.getElementById("stat-tasks");
+
+    const sessionStat =
+        document.getElementById("stat-sessions");
+
+
+    if (subjectStat) {
+
+        subjectStat.textContent =
+            subjects.length;
+
+    }
+
+
+    const completedTasks =
+        tasks.filter(
+            task => task.completed
+        ).length;
+
+
+    if (taskStat) {
+
+        taskStat.textContent =
+            `${completedTasks} / ${tasks.length}`;
+
+    }
+
+
+    if (sessionStat) {
+
+        sessionStat.textContent =
+            scheduleSessions.length;
+
+    }
+
+
+    renderTodaySessions();
+
+}
+
+
+/* =========================
+   TODAY'S SESSIONS
+   ========================= */
+
+function renderTodaySessions() {
+
+    const container =
+        document.getElementById(
+            "today-sessions"
+        );
+
+
+    if (!container) {
+        return;
+    }
+
+
+    const today =
+        new Date().toLocaleDateString(
+            "en-US",
+            {
+                weekday: "long"
+            }
+        );
+
+
+    const todaySessions =
+        scheduleSessions
+            .filter(
+                session =>
+                    session.day === today
+            )
+            .sort(
+                (a, b) =>
+                    a.time.localeCompare(
+                        b.time
+                    )
+            );
+
+
+    if (todaySessions.length === 0) {
+
+        container.innerHTML = `
+            <div class="empty-state">
+                <strong>No sessions planned for today</strong>
+                <p>
+                    Add a study session to your weekly schedule.
+                </p>
+            </div>
+        `;
+
+        return;
+    }
+
+
+    container.innerHTML =
+        todaySessions.map(
+            session => {
+
+                const subject =
+                    subjects.find(
+                        item =>
+                            item.name ===
+                            session.subject
+                    );
+
+
+                const background =
+                    subject
+                        ? subject.color
+                        : "#F7DDE5";
+
+
+                return `
+
+                    <div
+                        class="today-session"
+                        style="border-left: 6px solid ${background}"
+                    >
+
+                        <div class="today-session-time">
+                            ${formatTime(
+                                session.time
+                            )}
+                        </div>
+
+                        <div class="today-session-info">
+
+                            <strong>
+                                ${escapeHTML(
+                                    session.subject
+                                )}
+                            </strong>
+
+                            <small>
+                                ${session.duration}
+                                minute study session
+                            </small>
+
+                        </div>
+
+                    </div>
+
+                `;
+
+            }
+        ).join("");
+
+}
+
+
+updateDashboard();
