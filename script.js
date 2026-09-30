@@ -1145,6 +1145,90 @@ function escapeHTML(value) {
         .replace(/'/g, "&#039;");
 }
 
+/* =========================
+   FOCUS OPTIONS MENU
+========================= */
+
+const focusMenuButton =
+    document.getElementById("focus-menu-button");
+
+const focusMenu =
+    document.getElementById("focus-menu");
+
+const resetFocusButton =
+    document.getElementById("reset-focus");
+
+const clearFocusSubjectButton =
+    document.getElementById("clear-focus-subject");
+
+
+focusMenuButton?.addEventListener("click", function(event) {
+
+    event.stopPropagation();
+
+    focusMenu?.classList.toggle("show");
+
+});
+
+
+document.addEventListener("click", function(event) {
+
+    if (
+        focusMenu &&
+        !focusMenu.contains(event.target) &&
+        event.target !== focusMenuButton
+    ) {
+        focusMenu.classList.remove("show");
+    }
+
+});
+
+
+resetFocusButton?.addEventListener("click", function() {
+
+    clearInterval(timerInterval);
+
+    timerRunning = false;
+
+    timerSeconds = 25 * 60;
+
+    updateTimerDisplay();
+
+    const button =
+        document.getElementById("start-timer");
+
+    if (button) {
+        button.innerHTML =
+            "Start Focus Session <span>→</span>";
+    }
+
+    focusMenu?.classList.remove("show");
+
+});
+
+
+clearFocusSubjectButton?.addEventListener("click", function() {
+
+    selectedFocusSubject = "";
+
+    localStorage.removeItem(
+        "studyflowFocusSubject"
+    );
+
+    const select =
+        document.getElementById(
+            "focus-subject-select"
+        );
+
+    if (select) {
+        select.value = "";
+    }
+
+    updateFocusDisplay();
+
+    focusMenu?.classList.remove("show");
+
+});
 
 /* =========================
    INITIAL LOAD
