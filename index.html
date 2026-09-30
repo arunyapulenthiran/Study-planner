@@ -26,7 +26,9 @@
     <div class="blob blob-purple"></div>
     <div class="blob blob-blue"></div>
 
-    <!-- Navigation -->
+
+    <!-- ================= NAVIGATION ================= -->
+
     <header class="navbar">
 
         <a href="#" class="logo" data-page="home">
@@ -34,22 +36,41 @@
         </a>
 
         <nav>
-            <a href="#" class="nav-link active" data-page="home">Home</a>
-            <a href="#" class="nav-link" data-page="subjects">Subjects</a>
-            <a href="#" class="nav-link" data-page="schedule">Schedule</a>
-            <a href="#" class="nav-link" data-page="tasks">Tasks</a>
+            <a href="#" class="nav-link active" data-page="home">
+                Home
+            </a>
+
+            <a href="#" class="nav-link" data-page="subjects">
+                Subjects
+            </a>
+
+            <a href="#" class="nav-link" data-page="schedule">
+                Schedule
+            </a>
+
+            <a href="#" class="nav-link" data-page="tasks">
+                Tasks
+            </a>
         </nav>
 
-        <button class="profile">SF</button>
+        <button class="profile">
+            SF
+        </button>
 
     </header>
 
 
     <main class="main">
 
-        <!-- ================= HOME ================= -->
+
+        <!-- ==================================================
+             HOME
+        ================================================== -->
 
         <section class="page active-page" id="home-page">
+
+
+            <!-- ================= WELCOME ================= -->
 
             <section class="welcome">
 
@@ -68,49 +89,49 @@
                 </p>
 
                 <div class="today">
+
                     <span id="day"></span>
+
                     <strong id="date"></strong>
+
                 </div>
 
             </section>
 
+
+            <!-- ================= FOCUS ================= -->
 
             <section class="focus-area">
 
                 <div class="focus-card">
 
                     <div class="focus-top">
-                        <span>CURRENT FOCUS</span>
+
+                        <span>
+                            CURRENT FOCUS
+                        </span>
+
                         <div class="focus-menu-wrapper">
-    <button class="more" id="focus-menu-button" aria-label="Focus options">
-        ···
-    </button>
 
-    <div class="focus-menu" id="focus-menu">
-        <button id="reset-focus">Reset timer</button>
-        <button id="clear-focus-subject">Clear subject</button>
-    </div>
-</div>
-                    </div>
+                            <button
+                                class="more"
+                                id="focus-menu-button"
+                                aria-label="Focus options">
+                                ···
+                            </button>
 
-                    <div class="focus-subject">CURRENT FOCUS</div>
+                            <div
+                                class="focus-menu"
+                                id="focus-menu">
 
-<h2 id="focus-title">Choose a subject</h2>
+                                <button id="reset-focus">
+                                    Reset timer
+                                </button>
 
-<select id="focus-subject-select" class="focus-select">
-    <option value="">Select a subject</option>
-</select>
+                                <button id="clear-focus-subject">
+                                    Clear subject
+                                </button>
 
-<p>Choose something to study and begin focusing.</p>
-
-
-                    <div class="timer">
-
-                        <div class="timer-ring">
-
-                            <div class="timer-inner">
-                                <span id="timer">25:00</span>
-                                <small>FOCUS</small>
                             </div>
 
                         </div>
@@ -118,320 +139,646 @@
                     </div>
 
 
-                    <button class="start-btn" id="start-timer">
+                    <div class="focus-subject">
+                        CURRENT FOCUS
+                    </div>
+
+
+                    <h2 id="focus-title">
+                        Choose a subject
+                    </h2>
+
+
+                    <select
+                        id="focus-subject-select"
+                        class="focus-select">
+
+                        <option value="">
+                            Select a subject
+                        </option>
+
+                    </select>
+
+
+                    <p>
+                        Choose something to study and begin focusing.
+                    </p>
+
+
+                    <!-- TIMER -->
+
+                    <div class="timer">
+
+                        <div class="timer-ring">
+
+                            <div class="timer-inner">
+
+                                <span id="timer">
+                                    25:00
+                                </span>
+
+                                <small>
+                                    FOCUS
+                                </small>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- START BUTTON -->
+
+                    <button
+                        class="start-btn"
+                        id="start-timer">
+
                         Start Focus Session
-                        <span>→</span>
+
+                        <span>
+                            →
+                        </span>
+
                     </button>
 
 
                     <div class="session-info">
-                        <span>✦ Deep focus</span>
-                        <span>25 min</span>
+
+                        <span>
+                            ✦ Deep focus
+                        </span>
+
+                        <span>
+                            25 min
+                        </span>
+
                     </div>
 
                 </div>
 
             </section>
 
-<section class="dashboard-stats">
 
-    <div class="stat-card stat-pink">
-        <span class="stat-label">SUBJECTS</span>
-        <strong id="stat-subjects">0</strong>
-        <small>Subjects you're learning</small>
-    </div>
+            <!-- ================= DASHBOARD STATS ================= -->
 
-    <div class="stat-card stat-purple">
-        <span class="stat-label">TASKS</span>
-        <strong id="stat-tasks">0 / 0</strong>
-        <small>Tasks completed</small>
-    </div>
+            <section class="dashboard-stats">
 
-    <div class="stat-card stat-blue">
-        <span class="stat-label">SESSIONS</span>
-        <strong id="stat-sessions">0</strong>
-        <small>Sessions scheduled</small>
-    </div>
 
-</section>
+                <div class="stat-card stat-pink">
 
-<section class="today-plan">
+                    <span class="stat-label">
+                        SUBJECTS
+                    </span>
 
-    <div class="section-heading">
-        <div>
-            <span>YOUR DAY</span>
-            <h2>Today's Plan</h2>
-        </div>
-    </div>
+                    <strong id="stat-subjects">
+                        0
+                    </strong>
 
-    <div id="today-sessions" class="today-sessions">
+                    <small>
+                        Subjects you're learning
+                    </small>
 
-        <div class="empty-state">
-            <strong>No sessions planned</strong>
-            <p>Add a study session to your schedule.</p>
-        </div>
+                </div>
 
-    </div>
 
-</section>
+                <div class="stat-card stat-purple">
+
+                    <span class="stat-label">
+                        TASKS
+                    </span>
+
+                    <strong id="stat-tasks">
+                        0 / 0
+                    </strong>
+
+                    <small>
+                        Tasks completed
+                    </small>
+
+                </div>
+
+
+                <div class="stat-card stat-blue">
+
+                    <span class="stat-label">
+                        SESSIONS
+                    </span>
+
+                    <strong id="stat-sessions">
+                        0
+                    </strong>
+
+                    <small>
+                        Sessions scheduled
+                    </small>
+
+                </div>
+
+
+            </section>
+
+
+            <!-- ================= TODAY'S PLAN ================= -->
+
+            <section class="today-plan">
+
+                <div class="section-heading">
+
+                    <div>
+
+                        <span>
+                            YOUR DAY
+                        </span>
+
+                        <h2>
+                            Today's Plan
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                <div
+                    id="today-sessions"
+                    class="today-sessions">
+
+                    <div class="empty-state">
+
+                        <strong>
+                            No sessions planned
+                        </strong>
+
+                        <p>
+                            Add a study session to your schedule.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- ================= SUBJECTS ================= -->
+
             <section class="subjects-section">
 
                 <div class="section-heading">
 
                     <div>
-                        <span>YOUR SUBJECTS</span>
-                        <h2>What are you learning?</h2>
+
+                        <span>
+                            YOUR SUBJECTS
+                        </span>
+
+                        <h2>
+                            What are you learning?
+                        </h2>
+
                     </div>
 
-                    <button class="add-subject" id="add-subject">
+
+                    <button
+                        class="add-subject"
+                        id="add-subject">
+
                         + Add subject
+
                     </button>
 
                 </div>
 
 
-                <div class="subjects-grid" id="subjects-grid">
+                <div
+                    class="subjects-grid"
+                    id="subjects-grid">
 
                     <div class="empty-state">
-                        <strong>No subjects yet</strong>
-                        <p>Add your first subject to get started.</p>
+
+                        <strong>
+                            No subjects yet
+                        </strong>
+
+                        <p>
+                            Add your first subject to get started.
+                        </p>
+
                     </div>
 
                 </div>
 
             </section>
 
+
+            <!-- ================= TASKS ================= -->
 
             <section class="tasks-section">
 
-                <span class="section-label">TODAY</span>
+                <span class="section-label">
+                    TODAY
+                </span>
 
-                <h2>A few things to finish</h2>
+                <h2>
+                    A few things to finish
+                </h2>
 
-                <div class="tasks" id="home-tasks">
+
+                <div
+                    class="tasks"
+                    id="home-tasks">
 
                     <div class="empty-state">
-                        <strong>Your task list is empty</strong>
-                        <p>Add tasks from the Tasks section.</p>
+
+                        <strong>
+                            Your task list is empty
+                        </strong>
+
+                        <p>
+                            Add tasks from the Tasks section.
+                        </p>
+
                     </div>
 
                 </div>
 
             </section>
+
 
         </section>
 
 
-        <!-- ================= SUBJECTS ================= -->
+        <!-- ==================================================
+             SUBJECTS PAGE
+        ================================================== -->
 
-        <section class="page" id="subjects-page">
+        <section
+            class="page"
+            id="subjects-page">
+
 
             <div class="page-heading">
 
-                <span class="section-label">SUBJECTS</span>
+                <span class="section-label">
+                    SUBJECTS
+                </span>
 
-                <h1>Your subjects</h1>
+                <h1>
+                    Your subjects
+                </h1>
 
                 <p>
                     Add the subjects you are currently studying.
                 </p>
 
-                <button class="primary-button" id="subjects-add-button">
+
+                <button
+                    class="primary-button"
+                    id="subjects-add-button">
+
                     + Add Subject
+
                 </button>
 
             </div>
 
 
-            <div class="large-grid" id="subjects-page-grid">
+            <div
+                class="large-grid"
+                id="subjects-page-grid">
 
                 <div class="empty-state">
-                    <strong>No subjects yet</strong>
-                    <p>Start by adding your first subject.</p>
+
+                    <strong>
+                        No subjects yet
+                    </strong>
+
+                    <p>
+                        Start by adding your first subject.
+                    </p>
+
                 </div>
+
+            </div>
+
+
+        </section>
+
+
+        <!-- ==================================================
+             SCHEDULE PAGE
+        ================================================== -->
+
+        <section
+            class="page"
+            id="schedule-page">
+
+
+            <div class="page-heading">
+
+                <span class="section-label">
+                    SCHEDULE
+                </span>
+
+                <h1>
+                    Your study schedule
+                </h1>
+
+                <p>
+                    Organize your study time throughout the week.
+                </p>
+
+
+                <button
+                    class="primary-button"
+                    id="add-session">
+
+                    + Add Study Session
+
+                </button>
+
+            </div>
+
+
+            <div class="weekly-schedule">
+
+
+                <!-- MONDAY -->
+
+                <div class="schedule-day">
+
+                    <div class="day-header">
+
+                        <span>
+                            MON
+                        </span>
+
+                        <strong>
+                            Monday
+                        </strong>
+
+                    </div>
+
+                    <div
+                        class="day-sessions"
+                        data-day="Monday">
+
+                        <div class="no-session">
+                            No sessions
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- TUESDAY -->
+
+                <div class="schedule-day">
+
+                    <div class="day-header">
+
+                        <span>
+                            TUE
+                        </span>
+
+                        <strong>
+                            Tuesday
+                        </strong>
+
+                    </div>
+
+                    <div
+                        class="day-sessions"
+                        data-day="Tuesday">
+
+                        <div class="no-session">
+                            No sessions
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- WEDNESDAY -->
+
+                <div class="schedule-day">
+
+                    <div class="day-header">
+
+                        <span>
+                            WED
+                        </span>
+
+                        <strong>
+                            Wednesday
+                        </strong>
+
+                    </div>
+
+                    <div
+                        class="day-sessions"
+                        data-day="Wednesday">
+
+                        <div class="no-session">
+                            No sessions
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- THURSDAY -->
+
+                <div class="schedule-day">
+
+                    <div class="day-header">
+
+                        <span>
+                            THU
+                        </span>
+
+                        <strong>
+                            Thursday
+                        </strong>
+
+                    </div>
+
+                    <div
+                        class="day-sessions"
+                        data-day="Thursday">
+
+                        <div class="no-session">
+                            No sessions
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- FRIDAY -->
+
+                <div class="schedule-day">
+
+                    <div class="day-header">
+
+                        <span>
+                            FRI
+                        </span>
+
+                        <strong>
+                            Friday
+                        </strong>
+
+                    </div>
+
+                    <div
+                        class="day-sessions"
+                        data-day="Friday">
+
+                        <div class="no-session">
+                            No sessions
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- SATURDAY -->
+
+                <div class="schedule-day">
+
+                    <div class="day-header">
+
+                        <span>
+                            SAT
+                        </span>
+
+                        <strong>
+                            Saturday
+                        </strong>
+
+                    </div>
+
+                    <div
+                        class="day-sessions"
+                        data-day="Saturday">
+
+                        <div class="no-session">
+                            No sessions
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- SUNDAY -->
+
+                <div class="schedule-day">
+
+                    <div class="day-header">
+
+                        <span>
+                            SUN
+                        </span>
+
+                        <strong>
+                            Sunday
+                        </strong>
+
+                    </div>
+
+                    <div
+                        class="day-sessions"
+                        data-day="Sunday">
+
+                        <div class="no-session">
+                            No sessions
+                        </div>
+
+                    </div>
+
+                </div>
+
 
             </div>
 
         </section>
 
 
-        <!-- ================= SCHEDULE ================= -->
+        <!-- ==================================================
+             TASKS PAGE
+        ================================================== -->
 
-<section class="page" id="schedule-page">
+        <section
+            class="page"
+            id="tasks-page">
 
-    <div class="page-heading">
-
-        <span class="section-label">SCHEDULE</span>
-
-        <h1>Your study schedule</h1>
-
-        <p>
-            Organize your study time throughout the week.
-        </p>
-
-        <button class="primary-button" id="add-session">
-            + Add Study Session
-        </button>
-
-    </div>
-
-
-    <div class="weekly-schedule">
-
-        <div class="schedule-day">
-
-            <div class="day-header">
-                <span>MON</span>
-                <strong>Monday</strong>
-            </div>
-
-            <div class="day-sessions" data-day="Monday">
-                <div class="no-session">
-                    No sessions
-                </div>
-            </div>
-
-        </div>
-
-
-        <div class="schedule-day">
-
-            <div class="day-header">
-                <span>TUE</span>
-                <strong>Tuesday</strong>
-            </div>
-
-            <div class="day-sessions" data-day="Tuesday">
-                <div class="no-session">
-                    No sessions
-                </div>
-            </div>
-
-        </div>
-
-
-        <div class="schedule-day">
-
-            <div class="day-header">
-                <span>WED</span>
-                <strong>Wednesday</strong>
-            </div>
-
-            <div class="day-sessions" data-day="Wednesday">
-                <div class="no-session">
-                    No sessions
-                </div>
-            </div>
-
-        </div>
-
-
-        <div class="schedule-day">
-
-            <div class="day-header">
-                <span>THU</span>
-                <strong>Thursday</strong>
-            </div>
-
-            <div class="day-sessions" data-day="Thursday">
-                <div class="no-session">
-                    No sessions
-                </div>
-            </div>
-
-        </div>
-
-
-        <div class="schedule-day">
-
-            <div class="day-header">
-                <span>FRI</span>
-                <strong>Friday</strong>
-            </div>
-
-            <div class="day-sessions" data-day="Friday">
-                <div class="no-session">
-                    No sessions
-                </div>
-            </div>
-
-        </div>
-
-
-        <div class="schedule-day">
-
-            <div class="day-header">
-                <span>SAT</span>
-                <strong>Saturday</strong>
-            </div>
-
-            <div class="day-sessions" data-day="Saturday">
-                <div class="no-session">
-                    No sessions
-                </div>
-            </div>
-
-        </div>
-
-
-        <div class="schedule-day">
-
-            <div class="day-header">
-                <span>SUN</span>
-                <strong>Sunday</strong>
-            </div>
-
-            <div class="day-sessions" data-day="Sunday">
-                <div class="no-session">
-                    No sessions
-                </div>
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-        <!-- ================= TASKS ================= -->
-
-        <section class="page" id="tasks-page">
 
             <div class="page-heading">
 
-                <span class="section-label">TASKS</span>
+                <span class="section-label">
+                    TASKS
+                </span>
 
-                <h1>Your study tasks</h1>
+                <h1>
+                    Your study tasks
+                </h1>
 
                 <p>
                     Keep track of everything you want to complete.
                 </p>
 
-                <button class="primary-button" id="add-task">
+
+                <button
+                    class="primary-button"
+                    id="add-task">
+
                     + Add Task
+
                 </button>
 
             </div>
 
 
-            <div class="tasks-page-list" id="tasks-page-list">
+            <div
+                class="tasks-page-list"
+                id="tasks-page-list">
 
                 <div class="empty-state">
-                    <strong>No tasks yet</strong>
-                    <p>Add your first study task.</p>
+
+                    <strong>
+                        No tasks yet
+                    </strong>
+
+                    <p>
+                        Add your first study task.
+                    </p>
+
                 </div>
 
             </div>
 
+
         </section>
+
 
     </main>
 
 
+    <!-- ================= FOOTER ================= -->
+
     <footer>
 
-        <span>StudyFlow</span>
+        <span>
+            StudyFlow
+        </span>
 
         <p>
             Plan better · Focus deeper · Learn consistently
