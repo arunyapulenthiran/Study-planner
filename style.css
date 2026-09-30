@@ -1718,3 +1718,151 @@ footer p {
     }
 
 }
+/* =========================
+   SCHEDULE FORM
+   ========================= */
+
+#schedule-form-container {
+    max-width: 650px;
+    margin: 30px auto 80px;
+}
+
+.schedule-form {
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(128, 0, 128, 0.08);
+    border-radius: 28px;
+    padding: 32px;
+    box-shadow: 0 18px 45px rgba(80, 50, 90, 0.10);
+    text-align: left;
+}
+
+.form-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 25px;
+}
+
+.form-header h2 {
+    margin: 6px 0 0;
+}
+
+.close-form {
+    border: none;
+    background: #F7DDE5;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+#schedule-form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+#schedule-form label {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-weight: 600;
+}
+
+#schedule-form input,
+#schedule-form select {
+    width: 100%;
+    padding: 13px 15px;
+    border: 1px solid #E5DDE8;
+    border-radius: 13px;
+    background: #FFF9F1;
+    font: inherit;
+    color: #35353D;
+    outline: none;
+}
+
+#schedule-form input:focus,
+#schedule-form select:focus {
+    border-color: #C69BD5;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+
+/* =========================
+   TASK DELETE BUTTON
+   ========================= */
+
+.task {
+    position: relative;
+}
+
+.task-content {
+    flex: 1;
+}
+
+.delete-task {
+    margin-left: auto;
+    border: none;
+    background: transparent;
+    color: #9A8E9F;
+    font-size: 22px;
+    line-height: 1;
+    cursor: pointer;
+    padding: 5px 8px;
+    border-radius: 50%;
+}
+
+.delete-task:hover {
+    background: #F7DDE5;
+    color: #800080;
+}
+
+
+/* =========================
+   SCHEDULE SESSION DELETE
+   ========================= */
+
+.study-session {
+    position: relative;
+}
+
+.delete-session {
+    position: absolute;
+    top: 7px;
+    right: 7px;
+    border: none;
+    background: rgba(255,255,255,0.55);
+    width: 23px;
+    height: 23px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 16px;
+    line-height: 18px;
+}
+
+.delete-session:hover {
+    background: white;
+}
+
+
+/* =========================
+   MOBILE FORM
+   ========================= */
+
+@media (max-width: 600px) {
+
+    .schedule-form {
+        padding: 22px;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+}
