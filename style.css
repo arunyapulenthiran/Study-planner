@@ -1864,5 +1864,155 @@ footer p {
     .form-row {
         grid-template-columns: 1fr;
     }
+}
+/* =========================
+   DASHBOARD STATS
+   ========================= */
+
+.dashboard-stats {
+    max-width: 1000px;
+    margin: 0 auto 70px;
+
+    display: grid;
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 18px;
+}
+
+.stat-card {
+    padding: 28px 22px;
+
+    border-radius: 24px;
+
+    text-align: left;
+
+    box-shadow:
+        0 12px 30px rgba(80, 50, 90, 0.07);
+
+    border: 1px solid
+        rgba(128, 0, 128, 0.06);
+}
+
+.stat-pink {
+    background: #F7DDE5;
+}
+
+.stat-purple {
+    background: #E4DDF6;
+}
+
+.stat-blue {
+    background: #DCEEF7;
+}
+
+.stat-label {
+    display: block;
+
+    font-size: 11px;
+    font-weight: 800;
+
+    letter-spacing: 1.5px;
+
+    margin-bottom: 10px;
+}
+
+.stat-card strong {
+    display: block;
+
+    font-family:
+        "Playfair Display",
+        serif;
+
+    font-size: 34px;
+
+    margin-bottom: 5px;
+}
+
+.stat-card small {
+    color: #66616A;
+    font-size: 13px;
+}
+
+
+/* =========================
+   TODAY'S PLAN
+   ========================= */
+
+.today-plan {
+    max-width: 1000px;
+    margin: 0 auto 90px;
+}
+
+.today-sessions {
+    display: grid;
+    gap: 12px;
+}
+
+.today-session {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    gap: 18px;
+
+    padding: 18px 22px;
+
+    border-radius: 20px;
+
+    text-align: left;
+
+    background: rgba(255,255,255,0.78);
+
+    border: 1px solid
+        rgba(128, 0, 128, 0.06);
+
+    box-shadow:
+        0 8px 25px rgba(80, 50, 90, 0.05);
+}
+
+.today-session-time {
+    min-width: 80px;
+
+    font-weight: 700;
+
+    color: #800080;
+}
+
+.today-session-info {
+    flex: 1;
+}
+
+.today-session-info strong {
+    display: block;
+    margin-bottom: 3px;
+}
+
+.today-session-info small {
+    color: #77727B;
+}
+
+
+/* =========================
+   RESPONSIVE
+   ========================= */
+
+@media (max-width: 700px) {
+
+    .dashboard-stats {
+        grid-template-columns: 1fr;
+    }
+
+    .stat-card {
+        text-align: center;
+    }
+
+    .today-session {
+        padding: 16px;
+    }
+
+    .today-session-time {
+        min-width: 65px;
+    }
 
 }
