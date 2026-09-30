@@ -1,185 +1,314 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>StudyFlow | Study Planner</title>
+    <title>StudyFlow | Your Study Space</title>
 
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <div class="app">
+    <header class="navbar">
 
-        <!-- Sidebar -->
-        <aside class="sidebar">
+        <a href="#" class="logo">StudyFlow</a>
 
-            <div class="logo">
-                StudyFlow
+        <nav class="nav-links">
+            <a href="#" class="active">Dashboard</a>
+            <a href="#">Tasks</a>
+            <a href="#">Subjects</a>
+            <a href="#">Schedule</a>
+            <a href="#">Timer</a>
+        </nav>
+
+        <button class="profile">AP</button>
+
+    </header>
+
+
+    <main class="container">
+
+        <!-- Hero -->
+
+        <section class="hero">
+
+            <div>
+                <p class="eyebrow">YOUR STUDY SPACE</p>
+
+                <h1>Study smarter,<br>one session at a time.</h1>
+
+                <p class="hero-text">
+                    Organize your subjects, plan your study sessions,
+                    and keep track of your progress.
+                </p>
             </div>
 
-            <nav>
-                <a href="#" class="active">Dashboard</a>
-                <a href="#">My Tasks</a>
-                <a href="#">Subjects</a>
-                <a href="#">Schedule</a>
-                <a href="#">Study Timer</a>
-            </nav>
-
-            <div class="sidebar-bottom">
-                <a href="#">Settings</a>
+            <div class="date-card">
+                <span>Today</span>
+                <strong id="current-date">September 30</strong>
+                <small>Wednesday</small>
             </div>
 
-        </aside>
+        </section>
 
 
-        <!-- Main Content -->
-        <main class="main-content">
+        <!-- Main Dashboard -->
 
-            <header class="topbar">
+        <section class="dashboard">
 
-                <div>
-                    <h1>Good morning, Arunya 👋</h1>
-                    <p>Here's your study overview for today.</p>
+            <!-- Tasks -->
+
+            <div class="card tasks-card">
+
+                <div class="card-title">
+
+                    <div>
+                        <span class="section-label">TODAY</span>
+                        <h2>Today's Tasks</h2>
+                    </div>
+
+                    <button class="add-btn">+</button>
+
                 </div>
 
-                <button class="profile-btn">
-                    AP
+
+                <div class="task-list">
+
+                    <label class="task">
+                        <input type="checkbox">
+
+                        <span class="checkmark"></span>
+
+                        <div>
+                            <strong>Physics — Waves</strong>
+                            <small>Review oscillations</small>
+                        </div>
+                    </label>
+
+
+                    <label class="task">
+                        <input type="checkbox">
+
+                        <span class="checkmark"></span>
+
+                        <div>
+                            <strong>Mathematics — Integration</strong>
+                            <small>Practice 10 questions</small>
+                        </div>
+                    </label>
+
+
+                    <label class="task completed">
+                        <input type="checkbox" checked>
+
+                        <span class="checkmark"></span>
+
+                        <div>
+                            <strong>Chemistry — Organic</strong>
+                            <small>Review reaction mechanisms</small>
+                        </div>
+                    </label>
+
+                </div>
+
+
+                <button class="view-all">
+                    View all tasks →
                 </button>
 
-            </header>
+            </div>
 
 
-            <!-- Statistics -->
-            <section class="stats">
+            <!-- Progress -->
 
-                <div class="stat-card">
-                    <span>Total Tasks</span>
-                    <strong>12</strong>
-                    <small>For this week</small>
-                </div>
+            <div class="card progress-card">
 
-                <div class="stat-card">
-                    <span>Completed</span>
-                    <strong>7</strong>
-                    <small>58% completed</small>
-                </div>
+                <span class="section-label">THIS WEEK</span>
 
-                <div class="stat-card">
-                    <span>Study Hours</span>
-                    <strong>4.5</strong>
-                    <small>This week</small>
-                </div>
+                <h2>Study Progress</h2>
 
-            </section>
-
-
-            <!-- Dashboard Grid -->
-            <section class="dashboard-grid">
-
-                <!-- Today's Tasks -->
-                <div class="card tasks-card">
-
-                    <div class="card-header">
-                        <div>
-                            <h2>Today's Tasks</h2>
-                            <p>Stay on top of your study goals.</p>
-                        </div>
-
-                        <button class="add-btn">+</button>
-                    </div>
-
-                    <div class="task-list">
-
-                        <div class="task">
-                            <input type="checkbox">
-                            <div>
-                                <strong>Physics — Waves</strong>
-                                <span>Review oscillations</span>
-                            </div>
-                        </div>
-
-                        <div class="task">
-                            <input type="checkbox">
-                            <div>
-                                <strong>Combined Maths — Integration</strong>
-                                <span>Practice 10 questions</span>
-                            </div>
-                        </div>
-
-                        <div class="task completed">
-                            <input type="checkbox" checked>
-                            <div>
-                                <strong>Chemistry — Organic</strong>
-                                <span>Review reaction mechanisms</span>
-                            </div>
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <!-- Progress -->
-                <div class="card progress-card">
-
-                    <div class="card-header">
-                        <div>
-                            <h2>Study Progress</h2>
-                            <p>Your weekly progress</p>
-                        </div>
-                    </div>
+                <div class="progress-wrapper">
 
                     <div class="progress-circle">
                         <span>72%</span>
                     </div>
 
-                    <p class="progress-text">
-                        You're making good progress this week.
-                    </p>
-
                 </div>
 
-            </section>
+                <p>
+                    You're making steady progress.
+                    Keep going!
+                </p>
 
+                <div class="progress-stats">
 
-            <!-- Upcoming -->
-            <section class="card upcoming-card">
-
-                <div class="card-header">
                     <div>
-                        <h2>Upcoming</h2>
-                        <p>Your next study sessions</p>
-                    </div>
-                </div>
-
-                <div class="upcoming-list">
-
-                    <div class="upcoming-item">
-                        <div>
-                            <strong>Physics</strong>
-                            <span>Mechanics revision</span>
-                        </div>
-                        <time>Today · 4:00 PM</time>
+                        <strong>8.5h</strong>
+                        <span>Study time</span>
                     </div>
 
-                    <div class="upcoming-item">
-                        <div>
-                            <strong>Mathematics</strong>
-                            <span>Past paper practice</span>
-                        </div>
-                        <time>Tomorrow · 10:00 AM</time>
+                    <div>
+                        <strong>14</strong>
+                        <span>Tasks done</span>
                     </div>
 
                 </div>
 
-            </section>
+            </div>
 
-        </main>
+        </section>
 
-    </div>
+
+        <!-- Schedule -->
+
+        <section class="card schedule-card">
+
+            <div class="section-heading">
+
+                <div>
+                    <span class="section-label">YOUR PLAN</span>
+                    <h2>Today's Schedule</h2>
+                </div>
+
+                <a href="#">View schedule →</a>
+
+            </div>
+
+
+            <div class="schedule">
+
+                <div class="schedule-item">
+
+                    <time>09:00</time>
+
+                    <div class="schedule-line blue"></div>
+
+                    <div class="schedule-content">
+                        <strong>Mathematics</strong>
+                        <span>Integration practice</span>
+                    </div>
+
+                    <span class="subject-tag blue-tag">
+                        Maths
+                    </span>
+
+                </div>
+
+
+                <div class="schedule-item">
+
+                    <time>11:30</time>
+
+                    <div class="schedule-line lavender"></div>
+
+                    <div class="schedule-content">
+                        <strong>Physics</strong>
+                        <span>Waves & oscillations</span>
+                    </div>
+
+                    <span class="subject-tag lavender-tag">
+                        Physics
+                    </span>
+
+                </div>
+
+
+                <div class="schedule-item">
+
+                    <time>15:00</time>
+
+                    <div class="schedule-line sage"></div>
+
+                    <div class="schedule-content">
+                        <strong>Chemistry</strong>
+                        <span>Organic chemistry review</span>
+                    </div>
+
+                    <span class="subject-tag sage-tag">
+                        Chemistry
+                    </span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Subjects -->
+
+        <section class="subjects-section">
+
+            <div class="section-heading">
+
+                <div>
+                    <span class="section-label">YOUR LEARNING</span>
+                    <h2>Subjects</h2>
+                </div>
+
+                <a href="#">Manage subjects →</a>
+
+            </div>
+
+
+            <div class="subjects">
+
+                <div class="subject math">
+                    <span class="subject-icon">∑</span>
+                    <strong>Mathematics</strong>
+                    <small>6 tasks remaining</small>
+                </div>
+
+                <div class="subject physics">
+                    <span class="subject-icon">◌</span>
+                    <strong>Physics</strong>
+                    <small>4 tasks remaining</small>
+                </div>
+
+                <div class="subject chemistry">
+                    <span class="subject-icon">⚗</span>
+                    <strong>Chemistry</strong>
+                    <small>3 tasks remaining</small>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Quick Timer -->
+
+        <section class="timer-banner">
+
+            <div>
+                <span class="section-label">FOCUS SESSION</span>
+
+                <h2>Ready for your next study session?</h2>
+
+                <p>
+                    Start a focused session and make your study time count.
+                </p>
+            </div>
+
+            <button class="timer-btn">
+                Start Timer →
+            </button>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+        <p>StudyFlow · Plan better. Study smarter.</p>
+    </footer>
+
+
     <script src="script.js"></script>
+
 </body>
+
 </html>
