@@ -2016,3 +2016,38 @@ footer p {
     }
 
 }
+/* =========================
+   FOCUS SUBJECT SELECTOR
+========================= */
+
+.focus-select {
+    width: 80%;
+    max-width: 300px;
+    margin: 12px auto 18px;
+    padding: 13px 18px;
+    border: 1px solid rgba(53, 53, 61, 0.12);
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.85);
+    color: var(--charcoal);
+    font-family: "DM Sans", sans-serif;
+    font-size: 14px;
+    text-align: center;
+    outline: none;
+    cursor: pointer;
+}
+
+.focus-select:focus {
+    border-color: rgba(128, 0, 128, 0.3);
+    box-shadow: 0 0 0 4px rgba(228, 221, 246, 0.7);
+}
+
+.focus-select option {
+    background: white;
+    color: var(--charcoal);
+}
+
+@media (max-width: 600px) {
+    .focus-select {
+        width: 90%;
+    }
+}
