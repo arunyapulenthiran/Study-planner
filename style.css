@@ -1066,3 +1066,340 @@ footer p {
         height: 250px;
     }
 }
+ 
+/* =========================
+   STUDYFLOW APP PAGES
+   ========================= */
+
+.page {
+    display: none;
+    animation: pageIn 0.35s ease;
+}
+
+.page.active-page {
+    display: block;
+}
+
+@keyframes pageIn {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* =========================
+   PAGE HEADINGS
+   ========================= */
+
+.page-heading {
+    max-width: 700px;
+    margin: 90px auto 55px;
+    text-align: center;
+}
+
+.page-heading .section-label {
+    display: inline-block;
+}
+
+.page-heading h1 {
+    margin-top: 12px;
+
+    font-family: "Playfair Display", serif;
+    font-size: clamp(42px, 6vw, 62px);
+
+    letter-spacing: -1.5px;
+}
+
+.page-heading p {
+    max-width: 520px;
+    margin: 18px auto 25px;
+
+    color: var(--muted);
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+
+/* =========================
+   PRIMARY BUTTON
+   ========================= */
+
+.primary-button {
+    padding: 13px 22px;
+
+    border-radius: 50px;
+
+    background: var(--charcoal);
+    color: white;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    box-shadow: 0 10px 25px rgba(53, 53, 61, 0.15);
+
+    transition: 0.25s ease;
+}
+
+.primary-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 30px rgba(53, 53, 61, 0.2);
+}
+
+
+/* =========================
+   EMPTY STATES
+   ========================= */
+
+.empty-state {
+    width: 100%;
+
+    padding: 45px 25px;
+
+    text-align: center;
+
+    border-radius: 25px;
+
+    background: rgba(255, 255, 255, 0.65);
+
+    border: 1px dashed rgba(129, 117, 168, 0.25);
+
+    color: var(--muted);
+}
+
+.empty-state strong {
+    display: block;
+
+    color: var(--charcoal);
+
+    font-family: "Playfair Display", serif;
+    font-size: 20px;
+}
+
+.empty-state p {
+    margin-top: 7px;
+
+    font-size: 12px;
+}
+
+
+/* =========================
+   LARGE SUBJECT GRID
+   ========================= */
+
+.large-grid {
+    max-width: 900px;
+    margin: 0 auto 100px;
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+}
+
+.large-subject {
+    min-height: 150px;
+
+    padding: 25px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 18px;
+
+    border-radius: 28px;
+
+    box-shadow: var(--soft-shadow);
+
+    transition: 0.25s ease;
+}
+
+.large-subject:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow);
+}
+
+.large-subject-icon {
+    width: 65px;
+    height: 65px;
+
+    flex-shrink: 0;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 21px;
+
+    background: rgba(255, 255, 255, 0.65);
+
+    font-family: "Playfair Display", serif;
+    font-size: 27px;
+}
+
+.large-subject-info {
+    text-align: left;
+}
+
+.large-subject-info h2 {
+    font-family: "Playfair Display", serif;
+    font-size: 22px;
+}
+
+.large-subject-info p {
+    margin-top: 5px;
+
+    color: var(--muted);
+    font-size: 11px;
+}
+
+.large-subject .delete-subject {
+    margin-left: auto;
+}
+
+
+/* =========================
+   DELETE BUTTON
+   ========================= */
+
+.delete-subject {
+    padding: 8px 12px;
+
+    border-radius: 30px;
+
+    background: rgba(255, 255, 255, 0.65);
+
+    color: var(--muted);
+
+    font-size: 11px;
+    font-weight: 700;
+
+    transition: 0.2s ease;
+}
+
+.delete-subject:hover {
+    background: var(--charcoal);
+    color: white;
+}
+
+
+/* =========================
+   SCHEDULE
+   ========================= */
+
+.schedule-card {
+    max-width: 850px;
+    min-height: 430px;
+
+    margin: 0 auto 100px;
+
+    padding: 40px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 35px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(228, 221, 246, 0.75),
+            rgba(220, 238, 247, 0.75)
+        );
+
+    box-shadow: var(--soft-shadow);
+}
+
+.schedule-empty {
+    max-width: 430px;
+
+    text-align: center;
+}
+
+.schedule-icon {
+    width: 75px;
+    height: 75px;
+
+    margin: 0 auto 20px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 25px;
+
+    background: rgba(255, 255, 255, 0.65);
+
+    color: var(--purple-dark);
+
+    font-family: "Playfair Display", serif;
+    font-size: 35px;
+}
+
+.schedule-empty h2 {
+    font-family: "Playfair Display", serif;
+    font-size: 28px;
+}
+
+.schedule-empty p {
+    margin: 12px auto 25px;
+
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+
+/* =========================
+   TASK PAGE
+   ========================= */
+
+.tasks-page-list {
+    max-width: 720px;
+
+    margin: 0 auto 100px;
+}
+
+.tasks-page-list .tasks {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+
+/* =========================
+   MOBILE
+   ========================= */
+
+@media (max-width: 700px) {
+
+    .page-heading {
+        margin-top: 65px;
+        margin-bottom: 40px;
+    }
+
+    .page-heading h1 {
+        font-size: 43px;
+    }
+
+    .large-grid {
+        grid-template-columns: 1fr;
+        margin-bottom: 70px;
+    }
+
+    .large-subject {
+        min-height: 125px;
+    }
+
+    .schedule-card {
+        min-height: 350px;
+        padding: 25px;
+        margin-bottom: 70px;
+    }
+
+    .tasks-page-list {
+        margin-bottom: 70px;
+    }
+}
