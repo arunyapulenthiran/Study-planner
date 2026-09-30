@@ -2,8 +2,14 @@
    STUDYFLOW APP
    ========================= */
 
-let subjects = JSON.parse(localStorage.getItem("studyflowSubjects")) || [];
-let tasks = JSON.parse(localStorage.getItem("studyflowTasks")) || [];
+let subjects =
+    JSON.parse(localStorage.getItem("studyflowSubjects")) || [];
+
+let tasks =
+    JSON.parse(localStorage.getItem("studyflowTasks")) || [];
+
+let scheduleSessions =
+    JSON.parse(localStorage.getItem("studyflowSessions")) || [];
 
 let timerSeconds = 25 * 60;
 let timerInterval = null;
@@ -36,17 +42,20 @@ function showPage(pageName) {
     }
 
     navLinks.forEach(link => {
+
         link.classList.remove("active");
 
         if (link.dataset.page === pageName) {
             link.classList.add("active");
         }
+
     });
 
     window.scrollTo({
         top: 0,
         behavior: "smooth"
     });
+
 }
 
 
@@ -80,13 +89,18 @@ function displayDate() {
 
     const now = new Date();
 
-    const dayElement = document.getElementById("day");
-    const dateElement = document.getElementById("date");
+    const dayElement =
+        document.getElementById("day");
+
+    const dateElement =
+        document.getElementById("date");
+
 
     dayElement.textContent =
         now.toLocaleDateString("en-US", {
             weekday: "long"
         });
+
 
     dateElement.textContent =
         now.toLocaleDateString("en-US", {
@@ -94,7 +108,9 @@ function displayDate() {
             day: "numeric",
             year: "numeric"
         });
+
 }
+
 
 displayDate();
 
@@ -135,7 +151,11 @@ function renderSubjects() {
 
 
     subjectCount.textContent =
-        `${subjects.length} ${subjects.length === 1 ? "subject" : "subjects"}`;
+        `${subjects.length} ${
+            subjects.length === 1
+                ? "subject"
+                : "subjects"
+        }`;
 
 
     if (subjects.length === 0) {
@@ -146,6 +166,7 @@ function renderSubjects() {
                 <p>Add your first subject to get started.</p>
             </div>
         `;
+
 
         pageGrid.innerHTML = `
             <div class="empty-state">
@@ -158,81 +179,110 @@ function renderSubjects() {
     }
 
 
-    homeGrid.innerHTML = subjects.map((subject, index) => {
+    homeGrid.innerHTML =
+        subjects.map((subject, index) => {
 
-        return `
-            <article
-                class="subject"
-                style="background:${subject.color}"
-            >
-
-                <div class="subject-icon">
-                    ${subject.name.charAt(0).toUpperCase()}
-                </div>
-
-                <div>
-                    <h3>${escapeHTML(subject.name)}</h3>
-                    <p>Ready to study</p>
-                </div>
-
-                <button
-                    class="delete-subject"
-                    data-index="${index}"
-                    aria-label="Delete subject"
+            return `
+                <article
+                    class="subject"
+                    style="background:${subject.color}"
                 >
-                    ×
-                </button>
 
-            </article>
-        `;
+                    <div class="subject-icon">
+                        ${escapeHTML(
+                            subject.name
+                                .charAt(0)
+                                .toUpperCase()
+                        )}
+                    </div>
 
-    }).join("");
+                    <div>
+                        <h3>
+                            ${escapeHTML(subject.name)}
+                        </h3>
+
+                        <p>
+                            Ready to study
+                        </p>
+                    </div>
+
+                    <button
+                        class="delete-subject"
+                        data-index="${index}"
+                        aria-label="Delete subject"
+                    >
+                        ×
+                    </button>
+
+                </article>
+            `;
+
+        }).join("");
 
 
-    pageGrid.innerHTML = subjects.map((subject, index) => {
+    pageGrid.innerHTML =
+        subjects.map((subject, index) => {
 
-        return `
-            <article
-                class="large-subject"
-                style="background:${subject.color}"
-            >
-
-                <div class="large-subject-icon">
-                    ${subject.name.charAt(0).toUpperCase()}
-                </div>
-
-                <div class="large-subject-info">
-                    <h2>${escapeHTML(subject.name)}</h2>
-                    <p>Your study subject</p>
-                </div>
-
-                <button
-                    class="delete-subject"
-                    data-index="${index}"
+            return `
+                <article
+                    class="large-subject"
+                    style="background:${subject.color}"
                 >
-                    Delete
-                </button>
 
-            </article>
-        `;
+                    <div class="large-subject-icon">
+                        ${escapeHTML(
+                            subject.name
+                                .charAt(0)
+                                .toUpperCase()
+                        )}
+                    </div>
 
-    }).join("");
+                    <div class="large-subject-info">
+
+                        <h2>
+                            ${escapeHTML(subject.name)}
+                        </h2>
+
+                        <p>
+                            Your study subject
+                        </p>
+
+                    </div>
+
+                    <button
+                        class="delete-subject"
+                        data-index="${index}"
+                    >
+                        Delete
+                    </button>
+
+                </article>
+            `;
+
+        }).join("");
 
 
-    document.querySelectorAll(".delete-subject")
+    document
+        .querySelectorAll(".delete-subject")
         .forEach(button => {
 
-            button.addEventListener("click", () => {
+            button.addEventListener(
+                "click",
+                () => {
 
-                const index =
-                    Number(button.dataset.index);
+                    const index =
+                        Number(button.dataset.index);
 
-                subjects.splice(index, 1);
+                    subjects.splice(index, 1);
 
-                saveSubjects();
-                renderSubjects();
+                    saveSubjects();
 
-            });
+                    renderSubjects();
+
+                    renderSchedule();
+
+                }
+            );
 
         });
 
@@ -244,6 +294,7 @@ function addSubject() {
     const name = prompt(
         "What subject would you like to add?"
     );
+
 
     if (!name || !name.trim()) {
         return;
@@ -261,7 +312,9 @@ function addSubject() {
         )
     ) {
 
-        alert("That subject already exists.");
+        alert(
+            "That subject already exists."
+        );
 
         return;
     }
@@ -269,7 +322,8 @@ function addSubject() {
 
     const color =
         subjectColors[
-            subjects.length % subjectColors.length
+            subjects.length %
+            subjectColors.length
         ];
 
 
@@ -280,19 +334,28 @@ function addSubject() {
 
 
     saveSubjects();
+
     renderSubjects();
+
+    renderSchedule();
 
 }
 
 
 document
     .getElementById("add-subject")
-    .addEventListener("click", addSubject);
+    .addEventListener(
+        "click",
+        addSubject
+    );
 
 
 document
     .getElementById("subjects-add-button")
-    .addEventListener("click", addSubject);
+    .addEventListener(
+        "click",
+        addSubject
+    );
 
 
 renderSubjects();
@@ -323,14 +386,13 @@ function renderTasks() {
 
     if (tasks.length === 0) {
 
-        const emptyHTML = `
+        homeTasks.innerHTML = `
             <div class="empty-state">
                 <strong>Your task list is empty</strong>
                 <p>Add your first study task.</p>
             </div>
         `;
 
-        homeTasks.innerHTML = emptyHTML;
 
         taskPage.innerHTML = `
             <div class="empty-state">
@@ -343,33 +405,46 @@ function renderTasks() {
     }
 
 
-    const taskHTML = tasks.map((task, index) => {
+    const taskHTML =
+        tasks.map((task, index) => {
 
-        return `
-            <label class="task ${task.completed ? "done" : ""}">
-
-                <input
-                    type="checkbox"
-                    data-index="${index}"
-                    ${task.completed ? "checked" : ""}
+            return `
+                <label
+                    class="task ${
+                        task.completed
+                            ? "done"
+                            : ""
+                    }"
                 >
 
-                <span class="box"></span>
+                    <input
+                        type="checkbox"
+                        data-index="${index}"
+                        ${
+                            task.completed
+                                ? "checked"
+                                : ""
+                        }
+                    >
 
-                <div>
-                    <strong>
-                        ${escapeHTML(task.name)}
-                    </strong>
+                    <span class="box"></span>
 
-                    <small>
-                        Study task
-                    </small>
-                </div>
+                    <div>
 
-            </label>
-        `;
+                        <strong>
+                            ${escapeHTML(task.name)}
+                        </strong>
 
-    }).join("");
+                        <small>
+                            Study task
+                        </small>
+
+                    </div>
+
+                </label>
+            `;
+
+        }).join("");
 
 
     homeTasks.innerHTML = taskHTML;
@@ -391,12 +466,17 @@ function renderTasks() {
                 () => {
 
                     const index =
-                        Number(checkbox.dataset.index);
+                        Number(
+                            checkbox.dataset.index
+                        );
+
 
                     tasks[index].completed =
                         checkbox.checked;
 
+
                     saveTasks();
+
                     renderTasks();
 
                 }
@@ -413,6 +493,7 @@ function addTask() {
         "What study task would you like to add?"
     );
 
+
     if (!name || !name.trim()) {
         return;
     }
@@ -425,6 +506,7 @@ function addTask() {
 
 
     saveTasks();
+
     renderTasks();
 
 }
@@ -432,23 +514,544 @@ function addTask() {
 
 document
     .getElementById("add-task")
-    .addEventListener("click", addTask);
+    .addEventListener(
+        "click",
+        addTask
+    );
 
 
-document
-    .getElementById("schedule-task-button")
-    .addEventListener("click", () => {
+renderTasks();
 
-        showPage("tasks");
 
-        setTimeout(() => {
-            addTask();
-        }, 200);
+/* =========================
+   SCHEDULE
+   ========================= */
+
+function saveSchedule() {
+
+    localStorage.setItem(
+        "studyflowSessions",
+        JSON.stringify(scheduleSessions)
+    );
+
+}
+
+
+/* Create the schedule form */
+
+function createScheduleForm() {
+
+    const existing =
+        document.getElementById(
+            "schedule-form-container"
+        );
+
+
+    if (existing) {
+        existing.remove();
+    }
+
+
+    const container =
+        document.createElement("div");
+
+    container.id =
+        "schedule-form-container";
+
+
+    container.innerHTML = `
+
+        <div class="schedule-form">
+
+            <div class="form-header">
+
+                <div>
+                    <span class="section-label">
+                        NEW SESSION
+                    </span>
+
+                    <h2>
+                        Add Study Session
+                    </h2>
+                </div>
+
+                <button
+                    type="button"
+                    class="close-form"
+                    id="close-schedule-form"
+                >
+                    ×
+                </button>
+
+            </div>
+
+
+            <form id="schedule-form">
+
+                <label>
+                    Subject
+
+                    <select
+                        id="session-subject"
+                        required
+                    >
+                        <option value="">
+                            Choose a subject
+                        </option>
+
+                        ${
+                            subjects.map(
+                                subject => `
+                                    <option
+                                        value="${escapeHTML(
+                                            subject.name
+                                        )}"
+                                    >
+                                        ${escapeHTML(
+                                            subject.name
+                                        )}
+                                    </option>
+                                `
+                            ).join("")
+                        }
+
+                    </select>
+
+                </label>
+
+
+                <label>
+                    Day
+
+                    <select
+                        id="session-day"
+                        required
+                    >
+
+                        <option value="">
+                            Choose a day
+                        </option>
+
+                        <option value="Monday">
+                            Monday
+                        </option>
+
+                        <option value="Tuesday">
+                            Tuesday
+                        </option>
+
+                        <option value="Wednesday">
+                            Wednesday
+                        </option>
+
+                        <option value="Thursday">
+                            Thursday
+                        </option>
+
+                        <option value="Friday">
+                            Friday
+                        </option>
+
+                        <option value="Saturday">
+                            Saturday
+                        </option>
+
+                        <option value="Sunday">
+                            Sunday
+                        </option>
+
+                    </select>
+
+                </label>
+
+
+                <div class="form-row">
+
+                    <label>
+                        Start time
+
+                        <input
+                            type="time"
+                            id="session-time"
+                            required
+                        >
+                    </label>
+
+
+                    <label>
+                        Duration
+
+                        <select
+                            id="session-duration"
+                            required
+                        >
+
+                            <option value="30">
+                                30 minutes
+                            </option>
+
+                            <option value="45">
+                                45 minutes
+                            </option>
+
+                            <option
+                                value="60"
+                                selected
+                            >
+                                1 hour
+                            </option>
+
+                            <option value="90">
+                                1.5 hours
+                            </option>
+
+                            <option value="120">
+                                2 hours
+                            </option>
+
+                        </select>
+
+                    </label>
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="primary-button"
+                >
+                    Add to Schedule
+                </button>
+
+            </form>
+
+        </div>
+
+    `;
+
+
+    document
+        .getElementById("schedule-page")
+        .appendChild(container);
+
+
+    document
+        .getElementById(
+            "close-schedule-form"
+        )
+        .addEventListener(
+            "click",
+            () => {
+                container.remove();
+            }
+        );
+
+
+    document
+        .getElementById("schedule-form")
+        .addEventListener(
+            "submit",
+            event => {
+
+                event.preventDefault();
+
+                addScheduleSession();
+
+            }
+        );
+
+}
+
+
+/* Add session */
+
+function addScheduleSession() {
+
+    const subject =
+        document.getElementById(
+            "session-subject"
+        ).value;
+
+
+    const day =
+        document.getElementById(
+            "session-day"
+        ).value;
+
+
+    const time =
+        document.getElementById(
+            "session-time"
+        ).value;
+
+
+    const duration =
+        document.getElementById(
+            "session-duration"
+        ).value;
+
+
+    if (
+        !subject ||
+        !day ||
+        !time ||
+        !duration
+    ) {
+
+        alert(
+            "Please complete all fields."
+        );
+
+        return;
+    }
+
+
+    scheduleSessions.push({
+
+        id: Date.now(),
+
+        subject: subject,
+
+        day: day,
+
+        time: time,
+
+        duration: Number(duration)
 
     });
 
 
-renderTasks();
+    saveSchedule();
+
+    renderSchedule();
+
+
+    const form =
+        document.getElementById(
+            "schedule-form-container"
+        );
+
+
+    if (form) {
+        form.remove();
+    }
+
+}
+
+
+/* Format time */
+
+function formatTime(time) {
+
+    const [hours, minutes] =
+        time.split(":");
+
+
+    const date =
+        new Date();
+
+
+    date.setHours(
+        Number(hours),
+        Number(minutes)
+    );
+
+
+    return date.toLocaleTimeString(
+        "en-US",
+        {
+            hour: "numeric",
+            minute: "2-digit"
+        }
+    );
+
+}
+
+
+/* Render weekly schedule */
+
+function renderSchedule() {
+
+    const dayContainers =
+        document.querySelectorAll(
+            ".day-sessions"
+        );
+
+
+    dayContainers.forEach(
+        container => {
+
+            const day =
+                container.dataset.day;
+
+
+            const sessions =
+                scheduleSessions
+                    .filter(
+                        session =>
+                            session.day === day
+                    )
+                    .sort(
+                        (a, b) =>
+                            a.time.localeCompare(
+                                b.time
+                            )
+                    );
+
+
+            if (sessions.length === 0) {
+
+                container.innerHTML = `
+                    <div class="no-session">
+                        No sessions
+                    </div>
+                `;
+
+                return;
+            }
+
+
+            container.innerHTML =
+                sessions.map(
+                    session => {
+
+                        const subject =
+                            subjects.find(
+                                item =>
+                                    item.name ===
+                                    session.subject
+                            );
+
+
+                        const background =
+                            subject
+                                ? subject.color
+                                : "#F7DDE5";
+
+
+                        return `
+
+                            <div
+                                class="study-session"
+                                style="background:${background}"
+                            >
+
+                                <div
+                                    class="session-time"
+                                >
+                                    ${formatTime(
+                                        session.time
+                                    )}
+                                </div>
+
+                                <strong>
+                                    ${escapeHTML(
+                                        session.subject
+                                    )}
+                                </strong>
+
+                                <small>
+                                    ${
+                                        session.duration
+                                    } min
+                                </small>
+
+                                <button
+                                    class="delete-session"
+                                    data-id="${
+                                        session.id
+                                    }"
+                                    aria-label="Delete session"
+                                >
+                                    ×
+                                </button>
+
+                            </div>
+
+                        `;
+
+                    }
+                ).join("");
+
+        }
+    );
+
+
+    document
+        .querySelectorAll(
+            ".delete-session"
+        )
+        .forEach(button => {
+
+            button.addEventListener(
+                "click",
+                () => {
+
+                    const id =
+                        Number(
+                            button.dataset.id
+                        );
+
+
+                    scheduleSessions =
+                        scheduleSessions.filter(
+                            session =>
+                                session.id !== id
+                        );
+
+
+                    saveSchedule();
+
+                    renderSchedule();
+
+                }
+            );
+
+        });
+
+}
+
+
+/* Add session button */
+
+const addSessionButton =
+    document.getElementById(
+        "add-session"
+    );
+
+
+if (addSessionButton) {
+
+    addSessionButton.addEventListener(
+        "click",
+        () => {
+
+            if (subjects.length === 0) {
+
+                alert(
+                    "Please add a subject first."
+                );
+
+                showPage("subjects");
+
+                return;
+            }
+
+
+            createScheduleForm();
+
+            window.scrollTo({
+                top: document.body.scrollHeight,
+                behavior: "smooth"
+            });
+
+        }
+    );
+
+}
+
+
+renderSchedule();
 
 
 /* =========================
@@ -465,14 +1068,23 @@ const startTimerButton =
 function updateTimerDisplay() {
 
     const minutes =
-        Math.floor(timerSeconds / 60);
+        Math.floor(
+            timerSeconds / 60
+        );
+
 
     const seconds =
         timerSeconds % 60;
 
 
     timerDisplay.textContent =
-        `${String(minutes).padStart(2, "0")}:${String(seconds).padStart(2, "0")}`;
+        `${String(minutes).padStart(
+            2,
+            "0"
+        )}:${String(seconds).padStart(
+            2,
+            "0"
+        )}`;
 
 }
 
@@ -481,9 +1093,12 @@ function startTimer() {
 
     if (timerRunning) {
 
-        clearInterval(timerInterval);
+        clearInterval(
+            timerInterval
+        );
 
         timerRunning = false;
+
 
         startTimerButton.innerHTML =
             `Resume Focus Session <span>→</span>`;
@@ -494,38 +1109,50 @@ function startTimer() {
 
     timerRunning = true;
 
+
     startTimerButton.innerHTML =
         `Pause Focus Session <span>Ⅱ</span>`;
 
 
-    timerInterval = setInterval(() => {
+    timerInterval =
+        setInterval(
+            () => {
 
-        if (timerSeconds > 0) {
+                if (timerSeconds > 0) {
 
-            timerSeconds--;
+                    timerSeconds--;
 
-            updateTimerDisplay();
+                    updateTimerDisplay();
 
-        } else {
+                } else {
 
-            clearInterval(timerInterval);
+                    clearInterval(
+                        timerInterval
+                    );
 
-            timerRunning = false;
+                    timerRunning = false;
 
-            alert(
-                "Focus session complete! Great work."
-            );
 
-            timerSeconds = 25 * 60;
+                    alert(
+                        "Focus session complete! Great work."
+                    );
 
-            updateTimerDisplay();
 
-            startTimerButton.innerHTML =
-                `Start Focus Session <span>→</span>`;
+                    timerSeconds =
+                        25 * 60;
 
-        }
 
-    }, 1000);
+                    updateTimerDisplay();
+
+
+                    startTimerButton.innerHTML =
+                        `Start Focus Session <span>→</span>`;
+
+                }
+
+            },
+            1000
+        );
 
 }
 
@@ -548,7 +1175,9 @@ function escapeHTML(text) {
     const div =
         document.createElement("div");
 
+
     div.textContent = text;
+
 
     return div.innerHTML;
 
