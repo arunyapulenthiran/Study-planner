@@ -1945,23 +1945,39 @@ footer p {
    MOBILE
    ================================================== */
 
+/* =========================
+   MOBILE
+========================= */
+
 @media (max-width: 600px) {
 
+    /* Navbar */
     .navbar {
         margin-top: 14px;
-
-        padding:
-            12px 15px;
-
+        padding: 12px 15px;
         border-radius: 25px;
+        flex-wrap: wrap;
+        justify-content: center;
     }
 
     .logo {
         font-size: 21px;
+        margin-right: auto;
     }
 
     .navbar nav {
-        display: none;
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        gap: 6px;
+        flex-wrap: wrap;
+        margin-top: 10px;
+    }
+
+    .nav-link {
+        font-size: 11px;
+        padding: 6px 8px;
     }
 
     .profile {
@@ -1970,15 +1986,14 @@ footer p {
     }
 
 
+    /* Welcome */
     .welcome {
         margin-top: 65px;
-
         margin-bottom: 50px;
     }
 
     .welcome h1 {
         font-size: 48px;
-
         letter-spacing: -1.5px;
     }
 
@@ -1988,29 +2003,23 @@ footer p {
 
     .today {
         flex-direction: column;
-
         gap: 3px;
     }
 
 
+    /* Focus */
     .focus-area {
         width: 100%;
-
         margin-bottom: 70px;
-
         display: flex;
-
         justify-content: center;
+        align-items: center;
     }
 
     .focus-card {
         width: 100%;
-
         max-width: 500px;
-
-        padding:
-            27px 20px 23px;
-
+        padding: 27px 20px 23px;
         border-radius: 30px;
     }
 
@@ -2024,39 +2033,32 @@ footer p {
     }
 
 
+    /* Section headings */
     .section-heading {
         flex-direction: column;
-
         align-items: center;
-
         text-align: center;
-
         gap: 15px;
     }
 
 
+    /* Subjects */
     .subjects-grid {
         grid-template-columns: 1fr;
-
         gap: 12px;
     }
 
     .subject-item {
         min-height: 100px;
-
         padding: 17px;
-
         border-radius: 21px;
     }
 
     .subject-item .subject-icon {
         width: 48px;
         height: 48px;
-
         min-width: 48px;
-
         border-radius: 15px;
-
         font-size: 21px;
     }
 
@@ -2069,29 +2071,55 @@ footer p {
     }
 
 
+    /* Tasks */
     .tasks-section {
         margin-bottom: 70px;
     }
 
+    .tasks-page-list {
+        width: 100%;
+        margin-bottom: 70px;
+    }
 
+    .task {
+        width: 100%;
+        min-height: 65px;
+        padding: 14px 15px;
+        gap: 12px;
+    }
+
+    .task-checkbox {
+        width: 20px !important;
+        height: 20px !important;
+        min-width: 20px;
+        flex-shrink: 0;
+        cursor: pointer;
+    }
+
+    .task-content {
+        min-width: 0;
+        flex: 1;
+    }
+
+    .task strong {
+        font-size: 13px;
+        word-break: break-word;
+    }
+
+    .delete-task {
+        flex-shrink: 0;
+    }
+
+
+    /* Progress */
     .progress-card {
-        padding: 30px 25px;
-
-        flex-direction: column;
-
-        gap: 25px;
-
-        text-align: center;
-    }
-
-    .progress-number strong {
-        font-size: 55px;
+        padding: 20px;
     }
 
 
+    /* Page headings */
     .page-heading {
         margin-top: 65px;
-
         margin-bottom: 40px;
     }
 
@@ -2100,9 +2128,9 @@ footer p {
     }
 
 
+    /* Large subject grid */
     .large-grid {
         grid-template-columns: 1fr;
-
         margin-bottom: 70px;
     }
 
@@ -2111,18 +2139,13 @@ footer p {
     }
 
 
+    /* Schedule */
     .schedule-card {
-        min-height: 350px;
-
-        padding: 25px;
-
-        margin-bottom: 70px;
+        padding: 20px;
     }
-
 
     .weekly-schedule {
         grid-template-columns: 1fr;
-
         max-width: 400px;
     }
 
@@ -2131,13 +2154,32 @@ footer p {
     }
 
 
-    .tasks-page-list {
-        margin-bottom: 70px;
+    /* Schedule form */
+    #schedule-form-container {
+        width: 100%;
+        margin: 25px auto 70px;
     }
 
-
     .schedule-form {
-        padding: 22px;
+        width: 100%;
+        padding: 22px 18px;
+        border-radius: 24px;
+    }
+
+    #schedule-form {
+        width: 100%;
+    }
+
+    #schedule-form input,
+    #schedule-form select {
+        width: 100%;
+        min-height: 48px;
+        font-size: 16px;
+    }
+
+    #schedule-form .primary-button {
+        width: 100%;
+        min-height: 48px;
     }
 
     .form-row {
@@ -2145,6 +2187,7 @@ footer p {
     }
 
 
+    /* Dashboard */
     .dashboard-stats {
         grid-template-columns: 1fr;
     }
@@ -2153,6 +2196,8 @@ footer p {
         text-align: center;
     }
 
+
+    /* Today's plan */
     .today-session {
         padding: 16px;
     }
@@ -2162,23 +2207,25 @@ footer p {
     }
 
 
+    /* Focus subject selector */
     .focus-select {
         width: 90%;
     }
 
 
-    .blob-pink {
-        width: 230px;
-        height: 230px;
+    /* Decorative blobs */
+    .blob-one {
+        width: 180px;
+        height: 180px;
     }
 
-    .blob-purple {
-        width: 200px;
-        height: 200px;
+    .blob-two {
+        width: 140px;
+        height: 140px;
     }
 
-    .blob-blue {
-        width: 250px;
-        height: 250px;
+    .blob-three {
+        width: 160px;
+        height: 160px;
     }
 }
