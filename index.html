@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>StudyFlow | Study Planner</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="app">
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+
+            <div class="logo">
+                StudyFlow
+            </div>
+
+            <nav>
+                <a href="#" class="active">Dashboard</a>
+                <a href="#">My Tasks</a>
+                <a href="#">Subjects</a>
+                <a href="#">Schedule</a>
+                <a href="#">Study Timer</a>
+            </nav>
+
+            <div class="sidebar-bottom">
+                <a href="#">Settings</a>
+            </div>
+
+        </aside>
+
+
+        <!-- Main Content -->
+        <main class="main-content">
+
+            <header class="topbar">
+
+                <div>
+                    <h1>Good morning, Arunya 👋</h1>
+                    <p>Here's your study overview for today.</p>
+                </div>
+
+                <button class="profile-btn">
+                    AP
+                </button>
+
+            </header>
+
+
+            <!-- Statistics -->
+            <section class="stats">
+
+                <div class="stat-card">
+                    <span>Total Tasks</span>
+                    <strong>12</strong>
+                    <small>For this week</small>
+                </div>
+
+                <div class="stat-card">
+                    <span>Completed</span>
+                    <strong>7</strong>
+                    <small>58% completed</small>
+                </div>
+
+                <div class="stat-card">
+                    <span>Study Hours</span>
+                    <strong>4.5</strong>
+                    <small>This week</small>
+                </div>
+
+            </section>
+
+
+            <!-- Dashboard Grid -->
+            <section class="dashboard-grid">
+
+                <!-- Today's Tasks -->
+                <div class="card tasks-card">
+
+                    <div class="card-header">
+                        <div>
+                            <h2>Today's Tasks</h2>
+                            <p>Stay on top of your study goals.</p>
+                        </div>
+
+                        <button class="add-btn">+</button>
+                    </div>
+
+                    <div class="task-list">
+
+                        <div class="task">
+                            <input type="checkbox">
+                            <div>
+                                <strong>Physics — Waves</strong>
+                                <span>Review oscillations</span>
+                            </div>
+                        </div>
+
+                        <div class="task">
+                            <input type="checkbox">
+                            <div>
+                                <strong>Combined Maths — Integration</strong>
+                                <span>Practice 10 questions</span>
+                            </div>
+                        </div>
+
+                        <div class="task completed">
+                            <input type="checkbox" checked>
+                            <div>
+                                <strong>Chemistry — Organic</strong>
+                                <span>Review reaction mechanisms</span>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Progress -->
+                <div class="card progress-card">
+
+                    <div class="card-header">
+                        <div>
+                            <h2>Study Progress</h2>
+                            <p>Your weekly progress</p>
+                        </div>
+                    </div>
+
+                    <div class="progress-circle">
+                        <span>72%</span>
+                    </div>
+
+                    <p class="progress-text">
+                        You're making good progress this week.
+                    </p>
+
+                </div>
+
+            </section>
+
+
+            <!-- Upcoming -->
+            <section class="card upcoming-card">
+
+                <div class="card-header">
+                    <div>
+                        <h2>Upcoming</h2>
+                        <p>Your next study sessions</p>
+                    </div>
+                </div>
+
+                <div class="upcoming-list">
+
+                    <div class="upcoming-item">
+                        <div>
+                            <strong>Physics</strong>
+                            <span>Mechanics revision</span>
+                        </div>
+                        <time>Today · 4:00 PM</time>
+                    </div>
+
+                    <div class="upcoming-item">
+                        <div>
+                            <strong>Mathematics</strong>
+                            <span>Past paper practice</span>
+                        </div>
+                        <time>Tomorrow · 10:00 AM</time>
+                    </div>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+</body>
+</html>
